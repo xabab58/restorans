@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ context }}
+<br>
+<div style="text-align: center;">
+     <h1>Добавьте название ресторана</h1>
+<form action="{% url 'posts:add_restoran' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.as_p }}
+    <button type="submit">Добавить</button>
+</form>
+</div>
+{% endblock %}

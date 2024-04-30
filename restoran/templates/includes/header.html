@@ -4,9 +4,12 @@
       <!-- В дальнейшем тут будет создано полноценное меню -->
       <nav class="navbar navbar-light" style="background-color: rgba(183, 219, 255, 0.856)">
         <div >
-          <a class="navbar-brand" href="">
-            <img src="{% static 'image/logo.png' %}" width="30" height="30">
+          <a class="navbar-brand" href="{% url 'posts:index' %}">
+            <img src="{% static 'img/logo.png' %}" width="30" height="30"
             <span style="color:red">Ре</span>стораны</a>
+            <a class="navbar-brand" href="{% url 'posts:add_restoran' %}">
+              Добавление ресторана
+            </a> 
           </a>
         </div>
       </nav>   

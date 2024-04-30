@@ -1,5 +1,23 @@
 <!-- templates/ice_cream/index.html --> 
 {% extends 'base.html' %}
 {% block content %}
-{{ text }}
+{{ context }}
+
+{% for restoran in restorans %}
+  <div>
+    <h3>{{ restoran.name }}</h3>
+    {% if restoran.image %}
+      <img src="{{ restoran.image.url }}" alt="{{ restoran.name }}">
+    {% endif %}
+    <a href="">все оценки ресторана</a>
+  </div>
+  {% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
+
+
+
+
+<a href="{% url 'posts:index' %}">
+    Анфиса для друзей
+  </a> 
 {% endblock %}

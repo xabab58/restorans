@@ -1,15 +1,36 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+
+from .forms import *
+from .models import restorans
+
+from django.db import IntegrityError
 
 def index(request):
-    title = 'Главная страница'
+    list = restorans.objects.all()
     context = {
-
-        'title': title,
-
-        'text': 'Главная страница',
+        'restorans': list,
     }
+    print(context)
     return render(request, 'posts/index.html', context)
+
+def add_restoran(request):
+    if request.method == "POST":
+        form = AddRestoranForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('posts:index')
+            except IntegrityError as e:
+                form.add_error(None, f'Ошибка добавления: {e}')
+    else:
+        form = AddRestoranForm()
+    return render(request, 'posts/add_restoran.html', {'form': form})
+
+
+
+
 
 def list_restorans(request):
     return HttpResponse('список ресторанов')
