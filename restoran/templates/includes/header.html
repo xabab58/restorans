@@ -1,16 +1,21 @@
 {% load static %}
 <header>
-      <!-- Использованы классы бустрапа для создания типовой навигации с логотипом -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
       <!-- В дальнейшем тут будет создано полноценное меню -->
-      <nav class="navbar navbar-light" style="background-color: rgba(183, 219, 255, 0.856)">
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;"
         <div >
           <a class="navbar-brand" href="{% url 'posts:index' %}">
-            <img src="{% static 'img/logo.png' %}" width="30" height="30"
-            <span style="color:red">Ре</span>стораны</a>
-            <a class="navbar-brand" href="{% url 'posts:add_restoran' %}">
-              Добавление ресторана
-            </a> 
+            <img src="{% static 'img/logo.png' %}" width="60" height="60">
+            <span style="color:rgb(129, 10, 10)">Рестораны</span>
           </a>
+            <a class="navbar-brand" href="{% url 'posts:add_restoran' %}">
+              <span style="color:rgb(129, 10, 10)">Добавление ресторана</span>
+          </a> 
+          <a class="navbar-brand" href="{% url 'posts:help' %}">
+            <span style="color:rgb(129, 10, 10)">Помощ в оценке</span>
+          <a class="navbar-brand" href="{% url 'posts:index' %}">
+            <span style="color:rgb(129, 10, 10)">Профиль</span>
+          </a> 
         </div>
       </nav>   
     </header>

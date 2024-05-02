@@ -29,11 +29,8 @@ def add_restoran(request):
     return render(request, 'posts/add_restoran.html', {'form': form})
 
 
-
-
-
-def list_restorans(request):
-    return HttpResponse('список ресторанов')
+def help(request):
+    return render(request, 'posts/help.html')
 
 def id_restoran(request, slug):
     return HttpResponse('конкретный ресторан')

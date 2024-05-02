@@ -8,3 +8,6 @@ class AddRestoranForm(forms.ModelForm):
         widgets = {
             'image': forms.FileInput(attrs={'accept': 'image/*'})
         }
+        widgets = {
+            'name': forms.TextInput(attrs={ 'style': 'width: 300px;'})
+        }

@@ -1,23 +1,19 @@
-<!-- templates/ice_cream/index.html --> 
 {% extends 'base.html' %}
 {% block content %}
 {{ context }}
 
+<div style="display: flex; flex-wrap: wrap;">
 {% for restoran in restorans %}
-  <div>
-    <h3>{{ restoran.name }}</h3>
-    {% if restoran.image %}
-      <img src="{{ restoran.image.url }}" alt="{{ restoran.name }}">
-    {% endif %}
-    <a href="">все оценки ресторана</a>
+  <div style="flex: 0 0 33.33%; text-align: center; padding: 10px;">
+    <div style="display: inline-block;">
+      <h3>{{ restoran.name }}</h3>
+      {% if restoran.image %}
+        <img src="{{ restoran.image.url }}" alt="{{ restoran.name }}" width="200" height="200">
+      {% endif %}
+      <p>Оценка: </p>
+      <p><a href="">все оценки ресторана</a></p>
+    </div>
   </div>
-  {% if not forloop.last %}<hr>{% endif %}
 {% endfor %}
-
-
-
-
-<a href="{% url 'posts:index' %}">
-    Анфиса для друзей
-  </a> 
+</div>
 {% endblock %}

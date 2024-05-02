@@ -21,12 +21,23 @@ class person(models.Model):
         validators=[MaxValueValidator(9999)]
     )
     
-
     def __str__(self):
         return self.name
     
 
 
-    #score = models.IntegerField(
-    #    validators=[MinValueValidator(1), MaxValueValidator(10)]
-    #)
+
+# class table(models.Model):
+#     id=models.
+#     name_dish = models.CharField(max_length=30)
+#     name_restoran = models.CharField(max_length=30)
+#     patronymic = models.CharField(max_length=10)
+#     score = models.IntegerField(
+#         validators=[MinValueValidator(1), MaxValueValidator(10)]
+#     )
+    
+#     def __str__(self):
+#         return self.name
+#     #score = models.IntegerField(
+#     #    validators=[MinValueValidator(1), MaxValueValidator(10)]
+#     #)
