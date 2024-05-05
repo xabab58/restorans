@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div style="text-align: center;">
+     <h1>Регистрация</h1>
+</div>
+
+{% if form.errors %}
+
+{% endif %}
+
+<form action="{% url 'members:register_user' %}" method=POST ">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+</form>
+<br>
+
+
+
+{% endblock %}

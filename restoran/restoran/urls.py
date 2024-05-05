@@ -5,8 +5,10 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('users.urls')),
-    path('auth/', include('django.contrib.auth.urls')),
     path('', include('posts.urls')),
+    path('members/', include('django.contrib.auth.urls')),
+    path('members/', include('members.urls')),
+    
+
     
 ]
