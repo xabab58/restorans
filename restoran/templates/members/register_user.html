@@ -5,16 +5,18 @@
      <h1>Регистрация</h1>
 </div>
 
-{% if form.errors %}
 
-{% endif %}
+<div style="max-width: 800px; margin: 0 auto;">
+    <form action="{% url 'members:register_user' %}" method="POST">
+        {% csrf_token %}
 
-<form action="{% url 'members:register_user' %}" method=POST ">
-    {% csrf_token %}
-
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-</form>
+        {{ form.as_p }}
+        <div style="display: flex; justify-content: center;">
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+        
+    </form>
+</div>
 <br>
 
 
