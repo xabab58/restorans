@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ context }}
+<br>
+<div style="text-align: center;">
+     <h1>Добавьте оценку</h1>
+<form action="{% url 'posts:add_score' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.as_p }}
+    <div style="display: flex; justify-content: center;">
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </div>
+    
+    
+</form>
+<br>
+</div>
+{% endblock %}

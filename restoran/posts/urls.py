@@ -10,8 +10,10 @@ app_name = 'posts'
 urlpatterns = [
     path('', views.index, name='index'),
     path('add_restoran', views.add_restoran, name='add_restoran'),
+    path('add_score', views.add_score, name='add_score'),
     path('help', views.help, name='help'),
     path('id/<slug:slug>/', views.id_restoran),
+    
 
 ]
 

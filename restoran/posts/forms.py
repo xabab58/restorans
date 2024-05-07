@@ -11,3 +11,9 @@ class AddRestoranForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={ 'style': 'width: 300px;'})
         }
+
+
+class AddScoreForm(forms.ModelForm):
+    class Meta:
+        model = Score
+        fields = ['name', 'name_restoran', 'dish_name', 'rating']

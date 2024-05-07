@@ -10,7 +10,7 @@ class restorans(models.Model):
  
     def __str__(self):
         return self.name
-
+    
 
 class person(models.Model):
     name = models.CharField(max_length=10)
@@ -24,20 +24,11 @@ class person(models.Model):
     def __str__(self):
         return self.name
     
+class Score(models.Model):
+    name = models.CharField(max_length=100, blank=True, null=True)
+    name_restoran = models.ForeignKey(restorans, on_delete=models.CASCADE)
+    dish_name = models.CharField(max_length=100, blank=True, null=True)
+    rating = models.IntegerField(choices=[(i, i) for i in range(1, 11)])
 
-
-
-# class table(models.Model):
-#     id=models.
-#     name_dish = models.CharField(max_length=30)
-#     name_restoran = models.CharField(max_length=30)
-#     patronymic = models.CharField(max_length=10)
-#     score = models.IntegerField(
-#         validators=[MinValueValidator(1), MaxValueValidator(10)]
-#     )
-    
-#     def __str__(self):
-#         return self.name
-#     #score = models.IntegerField(
-#     #    validators=[MinValueValidator(1), MaxValueValidator(10)]
-#     #)
+    def __str__(self):
+        return f"{self.name} - {self.name_restoran} - {self.dish_name} - {self.rating}"

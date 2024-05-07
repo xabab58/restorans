@@ -3,17 +3,32 @@
 {{ context }}
 
 <div style="display: flex; flex-wrap: wrap;">
-{% for restoran in restorans %}
-  <div style="flex: 0 0 33.33%; text-align: center; padding: 10px;">
-    <div style="display: inline-block;">
-      <h3>{{ restoran.name }}</h3>
-      {% if restoran.image %}
-        <img src="{{ restoran.image.url }}" alt="{{ restoran.name }}" width="200" height="200">
-      {% endif %}
-      <p>Оценка: </p>
-      <p><a href="">все оценки ресторана</a></p>
+  {% for restoran in restaurants_with_ratings %}
+    <div style="flex: 0 0 33.33%; text-align: center; padding: 10px;">
+      <div style="display: inline-block;">
+        
+        {% if restoran.image %}
+          <img src="{{ restoran.image.url }}" alt="{{ restoran.name }}" width="200" height="200">
+        {% endif %}
+        <h3>{{ restoran.name }}</h3>
+        <p><h5>Средняя оценка: {{ restoran.avg_rating|floatformat:"1" }} </h5></p>
+        <p><a href="">все оценки ресторана</a></p>
+      </div>
     </div>
+  {% endfor %}
   </div>
-{% endfor %}
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
