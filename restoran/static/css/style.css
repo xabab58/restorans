@@ -1,0 +1,35 @@
+a {color:rgb(129, 10, 10)}
+.nav-link {color:rgb(129, 10, 10)}
+.navbar-brand {color:rgb(129, 10, 10)}
+
+.gold {color: gold; display: flex;}
+.silver {color: silver; display: flex;} 
+.bronza {color: #cd7f32; display: flex;}
+
+
+.gold span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: gold;
+    display: block;
+    margin-right: 5px;
+}
+
+.silver span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: silver;
+    display: block;
+    margin-right: 5px;
+}
+
+.bronza span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #cd7f32;
+    display: block;
+    margin-right: 5px;
+}

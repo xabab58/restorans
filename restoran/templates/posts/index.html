@@ -2,7 +2,8 @@
 {% block content %}
 {{ context }}
 
-<div style="display: flex; flex-wrap: wrap;">
+<div class="row">
+<div style="display: flex; flex-wrap: wrap;" class="main-block col-10">
   {% for restoran in restaurants_with_ratings %}
     <div style="flex: 0 0 33.33%; text-align: center; padding: 10px;">
       <div style="display: inline-block;">
@@ -17,9 +18,23 @@
     </div>
   {% endfor %}
   </div>
+  <div class="block col-2" > 
+    <span>TOP заведений:</span>
+    <ul style="list-style: none;"></ul>
+    
+    {% for i in names %}
+      {% if forloop.counter == 1 %}
+        <li class="gold"> <span></span>{{ i }}</li>
+      {% elif forloop.counter == 2 %}
+        <li class="silver"> <span></span>{{i}}</li>
+      {% elif forloop.counter == 3 %}
+        <li class="bronza"> <span></span>{{i}}</li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </div>
 
-
-
+</div>
 
 
 
