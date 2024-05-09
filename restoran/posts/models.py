@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils import timezone
 
 User = get_user_model()  
 
@@ -25,10 +26,14 @@ class person(models.Model):
         return self.name
     
 class Score(models.Model):
-    name = models.CharField(max_length=100, blank=True, null=True)
+    name = models.CharField(max_length=100, blank=True, null=True, default='Гость')
     name_restoran = models.ForeignKey(restorans, on_delete=models.CASCADE)
-    dish_name = models.CharField(max_length=100, blank=True, null=True)
+    dish_name = models.CharField(max_length=100, blank=True, null=True, default='Всё подряд.')
     rating = models.IntegerField(choices=[(i, i) for i in range(1, 11)])
+    data = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
-        return f"{self.name} - {self.name_restoran} - {self.dish_name} - {self.rating}"
+        formatted_date = self.data.strftime("%d.%m.%Y")
+        return f"{self.name} - {self.name_restoran} - {self.dish_name} - {self.rating} - {formatted_date} "
+
+

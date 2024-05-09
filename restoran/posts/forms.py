@@ -11,6 +11,10 @@ class AddRestoranForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={ 'style': 'width: 300px;'})
         }
+        labels = {
+            'name': 'Имя',
+            'image': 'Картинка',
+        }
 
 
 class AddScoreForm(forms.ModelForm):

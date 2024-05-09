@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div style="text-align: center;">
+        <h1>{{ get_restoran.name }}</h1>
+    </div>
+
+    
+    <div style="overflow: auto;">
+        <div style="float: left; margin-right: 20px;"> <!-- Контейнер для изображения -->
+            {% if get_restoran.image %}
+                <img src="{{ get_restoran.image.url }}" alt="Изображение ресторана"> <!-- Изображение -->
+            {% else %}
+                <img src="{% static 'img/no_jmg.png' %}"  width="500" height="500" alt="Изображение отсутствует">
+            {% endif %}
+        </div>
+
+
+
+
+
+
+        
+        <div style="float: center;"> 
+            Всего оценок: {{ all_score }} <br>
+            Последний заказ: {{ formatted_last_date }} <br>
+            Средний рейтинг рейтинг: {{ avg_rating|floatformat:"1" }} <br>
+            Максимальный рейтинг: {{ max_rating }} <br>
+            Минимальный рейтинг: {{ min_rating }} <br>
+            
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <br><br>
+        <h1>Все оценки </h1>
+    </div>
+    <style>
+        table {
+            margin: 0 auto; /* Центрируем таблицу по горизонтали */
+        }
+    </style>
+    
+    <table  class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Кто поставил</th>
+          <th scope="col">Название блюда</th>
+          <th scope="col">Рейтинг</th>
+          <th scope="col">Дата</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in all_table %}
+            <th scope="row">{{ forloop.counter }}</th>
+            <td  scope="row">{{ item.name }}</td>
+            <td  scope="row">{{ item.dish_name }}</td>
+            <td  scope="row">{{ item.rating }}</td>
+            <td scope="row">{{ item.data|date:"d.m.Y" }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+
+{% endblock %}
