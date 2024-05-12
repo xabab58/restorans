@@ -88,13 +88,9 @@ def id_restoran(request, id):
     formatted_last_date = last_date.strftime("%d.%m.%Y")
     all_table = Score.objects.all()
     all_table = Score.objects.filter(name_restoran=id).order_by('-data')
-    max_rating = Score.objects.aggregate(max_rating=Max('rating'))['max_rating']
-    min_rating = Score.objects.aggregate(min_rating=Min('rating'))['min_rating']
-    avg_rating = Score.objects.aggregate(avg_rating=Avg('rating'))['avg_rating']
-    
-
-
-
+    max_rating = Score.objects.filter(name_restoran_id=id).aggregate(max_rating=Max('rating'))['max_rating']
+    min_rating = Score.objects.filter(name_restoran_id=id).aggregate(min_rating=Min('rating'))['min_rating']
+    avg_rating = Score.objects.filter(name_restoran_id=id).aggregate(avg_rating=Avg('rating'))['avg_rating']
 
 
 
