@@ -11,6 +11,8 @@ class personAdmin(admin.ModelAdmin):
     list_display = ('name','last_name', 'patronymic', )
 
 
+
+
 admin.site.register(person, personAdmin)
 admin.site.register(restorans, restoransAdmin)
-
+admin.site.register(Score)

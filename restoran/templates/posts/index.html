@@ -9,7 +9,7 @@
       <div style="display: inline-block;">
         
         {% if restoran.image %}
-          <img src="{{ restoran.image.url }}" alt="{{ restoran.name }}" width="300" height="300">
+          <img src="{{ restoran.image.url }}" alt="{{ restoran.name }}" width="300" height="300" style="border-radius: 50%;">
         {% endif %}
         <h3>{{ restoran.name }}</h3>
         <p><h5>Средняя оценка: {{ restoran.avg_rating|floatformat:"1" }} </h5></p>
@@ -25,11 +25,11 @@
     <ul style="list-style: none;">
         {% for i in top_three %}
             {% if forloop.counter == 1 %}
-                <li> <img src="/static/img/gold.png" width="20" height="20"> {{  i.name_restoran__name }} - {{ i.avg_rating }} </li>
+                <li> <img src="/static/img/gold.png" width="20" height="20"> {{  i.name_restoran__name }} - {{ i.avg_rating|floatformat:"1" }} </li>
             {% elif forloop.counter == 2 %}
-                <li> <img src="/static/img/silver.png" width="20" height="20"> {{ i.name_restoran__name }} - {{ i.avg_rating }}</li>
+                <li> <img src="/static/img/silver.png" width="20" height="20"> {{ i.name_restoran__name }} - {{ i.avg_rating|floatformat:"1" }}</li>
             {% elif forloop.counter == 3 %}
-                <li> <img src="/static/img/bronze.png" width="20" height="20"> {{ i.name_restoran__name }} - {{ i.avg_rating }}</li>
+                <li> <img src="/static/img/bronze.png" width="20" height="20"> {{ i.name_restoran__name }} - {{ i.avg_rating|floatformat:"1"}}</li>
             {% endif %}
         {% endfor %}
     </ul>

@@ -11,7 +11,7 @@
     <div style="overflow: auto;">
         <div style="float: left; margin-right: 20px;"> <!-- Контейнер для изображения -->
             {% if get_restoran.image %}
-                <img src="{{ get_restoran.image.url }}" alt="Изображение ресторана"> <!-- Изображение -->
+                <img src="{{ get_restoran.image.url }}" width="500" height="500" alt="Изображение ресторана"> <!-- Изображение -->
             {% else %}
                 <img src="{% static 'img/no_jmg.png' %}"  width="500" height="500" alt="Изображение отсутствует">
             {% endif %}
